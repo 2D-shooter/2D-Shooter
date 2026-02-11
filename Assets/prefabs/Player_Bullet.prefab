@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5625916262534253669}
   - component: {fileID: 6715756149905366981}
   - component: {fileID: 6137880589403397764}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Player_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1638037843
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
