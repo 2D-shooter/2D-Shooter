@@ -7,7 +7,7 @@ namespace TopDown.Movement
     {
         protected void LookAt(Vector3 target)
         {
-            float lookAngle = AngleBetweenTwoPoints(transform.position, target) +180;
+            float lookAngle = AngleBetweenTwoPoints(transform.position, target) +90;
 
             transform.eulerAngles = new Vector3(0, 0, lookAngle);
         }
