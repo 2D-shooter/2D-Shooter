@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Civilian
   - Villain
-  - PistolPickup
   layers:
   - Default
   - TransparentFX
@@ -18,10 +17,6 @@ TagManager:
   - Bounds
   - Civilian
   - obstacleMask
-  - Bullets
-  - 
-  - 
-  - 
   - 
   - 
   - 
