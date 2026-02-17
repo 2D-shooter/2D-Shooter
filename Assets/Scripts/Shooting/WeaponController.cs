@@ -1,368 +1,161 @@
-//////using UnityEngine;
-//////using UniRx;
-//////using UnityEditor.Experimental.GraphView;
 
-//////namespace TopDown.Shooting
-//////{
-
-//////    public class WeaponController : MonoBehaviour
-//////    {
-//////        [Header("Cooldown")]
-//////        [SerializeField] private float cooldown = 0.25f;
-//////        private float cooldownTimer;
-
-//////        [Header("References")]
-//////        [SerializeField] private GameObject bulletprefab;
-//////        [SerializeField] private Transform firepoint;
-//////        //[SerializeField] private Animator muzzleFlashAnimator;
-
-//////        [Header("Ammo")]
-//////        [SerializeField] private int initialAmmo;
-//////        [SerializeField] private int clipSize;
-
-//////        public IntReactiveProperty TotalAmmo { get; private set; } = new IntReactiveProperty(0);
-
-//////        public IntReactiveProperty CurrentAmmoInClip { get; private set; } = new IntReactiveProperty(0);
-
-//////        private void Awake()
-//////        {
-//////            TotalAmmo.Value = initialAmmo;
-
-//////            if (initialAmmo <= clipSize)
-//////                CurrentAmmoInClip.Value = initialAmmo;
-//////            else
-//////                CurrentAmmoInClip.Value = clipSize;
-
-//////        }
-
-//////        private void Update()
-//////        {
-//////            cooldownTimer += Time.deltaTime;
-//////        }
-
-//////        private void Shoot()
-//////        {
-//////            if (cooldownTimer < cooldown) return;
-//////            if (CurrentAmmoInClip.Value <= 0) return;
-
-
-//////            GameObject bullet = Instantiate(bulletprefab,firepoint.position,firepoint.rotation, null);
-//////            bullet.GetComponent<Projectile>().ShootBullet(firepoint);
-//////            //muzzleFlashAnimator.SetTrigger("shoot");
-//////            cooldownTimer = 0;
-//////            CurrentAmmoInClip.Value--;
-//////        }
-
-//////        private void Reload()
-//////        {
-//////            if(TotalAmmo.Value <= 0) return;
-
-
-//////            int missingAmmo;
-//////            missingAmmo = clipSize - CurrentAmmoInClip.Value;
-
-//////            if (missingAmmo == 0) return;
-
-
-//////            int reloadAmmo;
-
-//////            if (TotalAmmo.Value >= missingAmmo)
-//////                reloadAmmo = missingAmmo;
-//////            else
-//////                reloadAmmo = TotalAmmo.Value;
-
-//////            CurrentAmmoInClip.Value += reloadAmmo;
-//////            TotalAmmo.Value -= reloadAmmo;
-//////        }
-
-//////        #region Input
-//////        private void OnShoot()
-//////        {
-//////            Shoot();   
-//////        }
-
-//////        private void OnReload()
-//////        {
-//////            Reload();
-//////        }
-//////        #endregion
-//////    }
-//////}
-
-////using UnityEngine;
-////using UniRx;
-
-////namespace TopDown.Shooting
-////{
-////    public class WeaponController : MonoBehaviour
-////    {
-////        [Header("Cooldown")]
-////        [SerializeField] private float cooldown = 0.25f;
-////        private float cooldownTimer;
-
-////        [Header("References")]
-////        [SerializeField] private GameObject bulletprefab;
-////        [SerializeField] private Transform firepoint;
-
-////        [Header("Ammo")]
-////        [SerializeField] private int initialAmmo = 30;
-////        [SerializeField] private int clipSize = 10;
-
-////        // UniRx Properties for the UI to observe
-////        public IntReactiveProperty TotalAmmo { get; private set; } = new IntReactiveProperty(0);
-////        public IntReactiveProperty CurrentAmmoInClip { get; private set; } = new IntReactiveProperty(0);
-
-////        private void Awake()
-////        {
-////            // Initialize Ammo values
-////            TotalAmmo.Value = initialAmmo;
-
-////            // Set clip to full, or to total ammo if total is less than a full clip
-////            CurrentAmmoInClip.Value = Mathf.Min(initialAmmo, clipSize);
-////        }
-
-////        private void Update()
-////        {
-////            cooldownTimer += Time.deltaTime;
-////        }
-
-////        private void Shoot()
-////        {
-////            // IMPORTANT: Only shoot if the script is enabled (picked up)
-////            if (!this.enabled) return;
-
-////            if (cooldownTimer < cooldown) return;
-////            if (CurrentAmmoInClip.Value <= 0) return;
-
-////            GameObject bullet = Instantiate(bulletprefab, firepoint.position, firepoint.rotation, null);
-
-////            // Verify Projectile component exists before calling ShootBullet
-////            if (bullet.TryGetComponent<Projectile>(out Projectile projectile))
-////            {
-////                projectile.ShootBullet(firepoint);
-////            }
-
-////            cooldownTimer = 0;
-////            CurrentAmmoInClip.Value--;
-////        }
-
-////        private void Reload()
-////        {
-////            if (!this.enabled) return;
-////            if (TotalAmmo.Value <= 0) return;
-
-////            int missingAmmo = clipSize - CurrentAmmoInClip.Value;
-////            if (missingAmmo <= 0) return;
-
-////            int reloadAmount = Mathf.Min(TotalAmmo.Value, missingAmmo);
-
-////            CurrentAmmoInClip.Value += reloadAmount;
-////            TotalAmmo.Value -= reloadAmount;
-////        }
-
-////        #region Input System Messages
-////        // These are called by the PlayerInput component on the Player object
-////        private void OnShoot()
-////        {
-////            Shoot();
-////        }
-
-////        private void OnReload()
-////        {
-////            Reload();
-////        }
-////        #endregion
-////    }
-////}
-
-//using UnityEngine;
-//using UniRx;
-
-//namespace TopDown.Shooting
-//{
-//    public class WeaponController : MonoBehaviour
-//    {
-//        [Header("Weapon Status")]
-//        // This is toggled by the PlayerEquipment script
-//        public bool isEquipped = false;
-
-//        [Header("Cooldown")]
-//        [SerializeField] private float cooldown = 0.25f;
-//        private float cooldownTimer;
-
-//        [Header("References")]
-//        [SerializeField] private GameObject bulletprefab;
-//        [SerializeField] private Transform firepoint;
-
-//        [Header("Ammo")]
-//        [SerializeField] private int initialAmmo = 30;
-//        [SerializeField] private int clipSize = 10;
-
-//        // Reactive properties for the UI
-//        public IntReactiveProperty TotalAmmo { get; private set; } = new IntReactiveProperty(0);
-//        public IntReactiveProperty CurrentAmmoInClip { get; private set; } = new IntReactiveProperty(0);
-
-//        private void Awake()
-//        {
-//            TotalAmmo.Value = initialAmmo;
-//            CurrentAmmoInClip.Value = Mathf.Min(initialAmmo, clipSize);
-//        }
-
-//        private void Update()
-//        {
-//            // Timer always runs, but Shoot() is blocked if not equipped
-//            cooldownTimer += Time.deltaTime;
-//        }
-
-//        private void Shoot()
-//        {
-//            // Safety checks
-//            if (!isEquipped) return;
-//            if (cooldownTimer < cooldown) return;
-//            if (CurrentAmmoInClip.Value <= 0) return;
-//            if (bulletprefab == null || firepoint == null) return;
-
-//            // Spawn the bullet
-//            GameObject bullet = Instantiate(bulletprefab, firepoint.position, firepoint.rotation, null);
-
-//            if (bullet.TryGetComponent<Projectile>(out Projectile projectile))
-//            {
-//                projectile.ShootBullet(firepoint);
-//            }
-
-//            cooldownTimer = 0;
-//            CurrentAmmoInClip.Value--;
-//        }
-
-//        private void Reload()
-//        {
-//            if (!isEquipped) return;
-//            if (TotalAmmo.Value <= 0) return;
-
-//            int missingAmmo = clipSize - CurrentAmmoInClip.Value;
-//            if (missingAmmo <= 0) return;
-
-//            int reloadAmount = Mathf.Min(TotalAmmo.Value, missingAmmo);
-
-//            CurrentAmmoInClip.Value += reloadAmount;
-//            TotalAmmo.Value -= reloadAmount;
-//        }
-
-//        #region Input System Messages
-//        private void OnShoot()
-//        {
-//            Shoot();
-//        }
-
-//        private void OnReload()
-//        {
-//            Reload();
-//        }
-//        #endregion
-//    }
-//}
 
 using UnityEngine;
 using UniRx;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 namespace TopDown.Shooting
 {
+    public enum WeaponType { Fists, Pistol, AssaultRifle }
+
     public class WeaponController : MonoBehaviour
     {
-        [Header("Weapon Status")]
-        public bool isEquipped = false;
+        public WeaponType currentWeapon = WeaponType.Fists;
+        public WeaponData activeWeaponData;
 
-        [Header("Fist / Melee References")]
-        [SerializeField] private PunchEffect punchVisualEffect; // Drag PunchCircle here
-        [SerializeField] private Transform fistPoint;           // Drag FistPoint here
-        [SerializeField] private float punchDamage = 1f;
-        [SerializeField] private float punchRange = 0.5f;
-        [SerializeField] private float punchCooldown = 0.4f;
+        [SerializeField] private PunchEffect punchVisualEffect;
+        [SerializeField] private Transform fistPoint;
 
-        [Header("Pistol Settings")]
-        [SerializeField] private float shootCooldown = 0.25f;
-        [SerializeField] private GameObject bulletprefab;
-        [SerializeField] private Transform firepoint;
+        private float nextFireTime = 0f;
+        private bool hasReleasedSinceLastShot = true;
+        private Transform currentFirePoint;
 
-        [Header("Ammo")]
-        [SerializeField] private int initialAmmo = 30;
-        [SerializeField] private int clipSize = 10;
+        private Dictionary<WeaponType, IntReactiveProperty> clipAmmoPool = new Dictionary<WeaponType, IntReactiveProperty>();
+        private Dictionary<WeaponType, IntReactiveProperty> totalAmmoPool = new Dictionary<WeaponType, IntReactiveProperty>();
 
-        private float cooldownTimer;
-
-        public IntReactiveProperty TotalAmmo { get; private set; } = new IntReactiveProperty(0);
         public IntReactiveProperty CurrentAmmoInClip { get; private set; } = new IntReactiveProperty(0);
+        public IntReactiveProperty TotalAmmo { get; private set; } = new IntReactiveProperty(0);
 
         private void Awake()
         {
-            TotalAmmo.Value = initialAmmo;
-            CurrentAmmoInClip.Value = Mathf.Min(initialAmmo, clipSize);
+            InitializeAmmo(WeaponType.Pistol, 10, 30);
+            InitializeAmmo(WeaponType.AssaultRifle, 30, 90);
+            SwitchToWeapon(WeaponType.Fists);
         }
 
-        private void Update() => cooldownTimer += Time.deltaTime;
-
-        private void HandleAction()
+        private void InitializeAmmo(WeaponType type, int clip, int total)
         {
-            if (isEquipped) Shoot();
-            else Punch();
+            if (!clipAmmoPool.ContainsKey(type))
+            {
+                clipAmmoPool[type] = new IntReactiveProperty(clip);
+                totalAmmoPool[type] = new IntReactiveProperty(total);
+            }
         }
 
-        private void Punch()
+        public void SwitchToWeapon(WeaponType newType, WeaponData data = null, Transform weaponFirePoint = null)
         {
-            if (cooldownTimer < punchCooldown) return;
+            currentWeapon = newType;
+            activeWeaponData = data;
+            currentFirePoint = weaponFirePoint;
+            hasReleasedSinceLastShot = true;
 
-            // Trigger the visual circle pop
+            if (newType != WeaponType.Fists && clipAmmoPool.ContainsKey(newType))
+            {
+                CurrentAmmoInClip.Value = clipAmmoPool[newType].Value;
+                TotalAmmo.Value = totalAmmoPool[newType].Value;
+            }
+            else
+            {
+                CurrentAmmoInClip.Value = 0;
+                TotalAmmo.Value = 0;
+            }
+        }
+
+        private void Update()
+        {
+            // DIRECT INPUT CHECK: This ignores the Input Action events and looks at the hardware
+            // Use Mouse.current.leftButton.isPressed if you are using the New Input System
+            bool isPressing = false;
+            if (Mouse.current != null)
+            {
+                isPressing = Mouse.current.leftButton.isPressed;
+            }
+
+            // Handle release state
+            if (!isPressing)
+            {
+                hasReleasedSinceLastShot = true;
+            }
+
+            // If not pressing, or still cooling down from last shot, stop here
+            if (!isPressing || Time.time < nextFireTime) return;
+
+            // Handle Melee
+            if (currentWeapon == WeaponType.Fists)
+            {
+                if (hasReleasedSinceLastShot)
+                {
+                    DoPunch();
+                }
+                return;
+            }
+
+            // Handle Guns
+            if (activeWeaponData == null) return;
+
+            // Semi-auto check
+            if (!activeWeaponData.isAutomatic && !hasReleasedSinceLastShot) return;
+
+            if (clipAmmoPool.ContainsKey(currentWeapon) && clipAmmoPool[currentWeapon].Value > 0)
+            {
+                DoShoot();
+            }
+        }
+
+        private void DoShoot()
+        {
+            float delay = Mathf.Max(activeWeaponData.fireRate, 0.1f);
+            nextFireTime = Time.time + delay;
+            hasReleasedSinceLastShot = false;
+
+            GameObject bullet = Instantiate(activeWeaponData.projectilePrefab, currentFirePoint.position, currentFirePoint.rotation);
+            if (bullet.TryGetComponent<Projectile>(out Projectile projectile))
+            {
+                projectile.ShootBullet(currentFirePoint);
+            }
+
+            clipAmmoPool[currentWeapon].Value--;
+            CurrentAmmoInClip.Value = clipAmmoPool[currentWeapon].Value;
+        }
+
+        private void DoPunch()
+        {
+            nextFireTime = Time.time + 0.4f;
+            hasReleasedSinceLastShot = false;
+
             if (punchVisualEffect != null) punchVisualEffect.Show();
 
-            // Melee detection logic
-            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(fistPoint.position, punchRange);
-
+            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(fistPoint.position, 0.5f);
             foreach (var obj in hitObjects)
             {
                 if (obj.TryGetComponent<IDamageable>(out var damageable))
-                {
-                    damageable.TakeDamage(punchDamage);
-                }
+                    damageable.TakeDamage(1f);
             }
-
-            cooldownTimer = 0;
         }
 
-        private void Shoot()
+        // Standard Input System callback for Reload
+        private void OnReload()
         {
-            if (cooldownTimer < shootCooldown) return;
-            if (CurrentAmmoInClip.Value <= 0) return;
+            if (currentWeapon == WeaponType.Fists || activeWeaponData == null) return;
+            if (!clipAmmoPool.ContainsKey(currentWeapon)) return;
 
-            GameObject bullet = Instantiate(bulletprefab, firepoint.position, firepoint.rotation, null);
-            if (bullet.TryGetComponent<Projectile>(out Projectile projectile))
+            int missing = activeWeaponData.clipSize - clipAmmoPool[currentWeapon].Value;
+            int available = totalAmmoPool[currentWeapon].Value;
+            int amount = Mathf.Min(missing, available);
+
+            clipAmmoPool[currentWeapon].Value += amount;
+            totalAmmoPool[currentWeapon].Value -= amount;
+            CurrentAmmoInClip.Value = clipAmmoPool[currentWeapon].Value;
+            TotalAmmo.Value = totalAmmoPool[currentWeapon].Value;
+        }
+
+        public void AddAmmo(WeaponType type, int amount)
+        {
+            if (totalAmmoPool.ContainsKey(type))
             {
-                projectile.ShootBullet(firepoint);
-            }
-
-            cooldownTimer = 0;
-            CurrentAmmoInClip.Value--;
-        }
-
-        private void Reload()
-        {
-            if (!isEquipped || TotalAmmo.Value <= 0) return;
-            int missingAmmo = clipSize - CurrentAmmoInClip.Value;
-            if (missingAmmo <= 0) return;
-
-            int reloadAmount = Mathf.Min(TotalAmmo.Value, missingAmmo);
-            CurrentAmmoInClip.Value += reloadAmount;
-            TotalAmmo.Value -= reloadAmount;
-        }
-
-        private void OnShoot() => HandleAction();
-        private void OnReload() => Reload();
-
-        private void OnDrawGizmosSelected()
-        {
-            if (fistPoint != null)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawWireSphere(fistPoint.position, punchRange);
+                totalAmmoPool[type].Value += amount;
+                if (currentWeapon == type) TotalAmmo.Value = totalAmmoPool[type].Value;
             }
         }
     }
