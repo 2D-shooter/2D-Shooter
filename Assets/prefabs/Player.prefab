@@ -434,9 +434,6 @@ MonoBehaviour:
   activeWeaponData: {fileID: 0}
   punchVisualEffect: {fileID: 7164105134529335667}
   fistPoint: {fileID: 900007909458161633}
-  punchDamage: 1
-  punchRange: 0.2
-  punchCooldown: 0.4
 --- !u!114 &6716601102979331710
 MonoBehaviour:
   m_ObjectHideFlags: 0
