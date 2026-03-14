@@ -4,35 +4,52 @@ public class VillainMovement : MonoBehaviour
 {
     public float walkSpeed = 2f;
     public float runSpeed = 6f;
-    public float acceleration = 8f;   // säädettävä kiihtyvyys
+    public float acceleration = 8f;
     public float changeTime = 2f;
+    public float stoppingDistance = 0.8f;
 
     private Transform target;
     private Vector2 direction;
     private float timer;
     private bool seesTarget;
     private float currentSpeed;
+
     private Rigidbody2D rb;
+    private EnemyShooting enemyShooting;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        enemyShooting = GetComponent<EnemyShooting>();
+
         currentSpeed = walkSpeed;
         ChooseNewDirection();
     }
 
     void FixedUpdate()
     {
-        Vector2 moveDir;
+        Vector2 moveDir = Vector2.zero;
 
         if (seesTarget && target != null)
         {
-            moveDir = ((Vector2)target.position - rb.position).normalized;
-            currentSpeed = Mathf.MoveTowards(
-                currentSpeed,
-                runSpeed,
-                acceleration * Time.fixedDeltaTime
-            );
+            float distance = Vector2.Distance(rb.position, target.position);
+
+            if (distance > stoppingDistance)
+            {
+                moveDir = ((Vector2)target.position - rb.position).normalized;
+
+                currentSpeed = Mathf.MoveTowards(
+                    currentSpeed,
+                    runSpeed,
+                    acceleration * Time.fixedDeltaTime
+                );
+            }
+            else
+            {
+                currentSpeed = 0f;
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
         }
         else
         {
@@ -42,6 +59,7 @@ public class VillainMovement : MonoBehaviour
                 ChooseNewDirection();
 
             moveDir = direction;
+
             currentSpeed = Mathf.MoveTowards(
                 currentSpeed,
                 walkSpeed,
@@ -71,11 +89,17 @@ public class VillainMovement : MonoBehaviour
     {
         seesTarget = true;
         target = t;
+
+        if (enemyShooting != null)
+            enemyShooting.SetTarget(t);
     }
 
     public void ClearTarget()
     {
         seesTarget = false;
         target = null;
+
+        if (enemyShooting != null)
+            enemyShooting.ClearTarget();
     }
 }

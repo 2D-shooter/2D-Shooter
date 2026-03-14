@@ -70,10 +70,13 @@ public class VisionTriggerVillain : MonoBehaviour
             origin,
             dir.normalized,
             dist,
-            obstacleMask
+            obstacleMask | playerMask
         );
 
-        bool seesPlayerNow = hit.collider == null;
+        if (hit.collider == null)
+            return;
+
+        bool seesPlayerNow = hit.collider.CompareTag("Player");
 
         if (seesPlayerNow && !hasLineOfSight)
         {
