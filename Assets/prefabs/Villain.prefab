@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4710358710613591456}
   - component: {fileID: 2066961136912985450}
   - component: {fileID: 6892058537510185896}
-  m_Layer: 6
+  - component: {fileID: 5101278597754653850}
+  m_Layer: 3
   m_Name: VisionTriggerVillain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1998812391800435093}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.043, y: 0.007, z: 0}
+  m_LocalPosition: {x: -0.19, y: 0.007, z: 0}
   m_LocalScale: {x: 0.64636767, y: 1.0446347, z: 1.0446347}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +41,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998812391800435093}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -93,10 +94,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VisionTrigger
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   playerMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!58 &5101278597754653850
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998812391800435093}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 4
+--- !u!1 &2899714441858471960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8418135193290860423}
+  m_Layer: 3
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8418135193290860423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899714441858471960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.06, y: -0.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5819548794981211069}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3585680538000057454
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,8 +191,8 @@ Transform:
   m_GameObject: {fileID: 3585680538000057454}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.038, y: 0.015, z: 0}
-  m_LocalScale: {x: 0.17062499, y: 0.17625, z: 1}
+  m_LocalPosition: {x: 0, y: -0.26, z: 0}
+  m_LocalScale: {x: 0.178269, y: 0.17625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5819548794981211069}
@@ -200,6 +268,7 @@ GameObject:
   - component: {fileID: 4563230133086628178}
   - component: {fileID: 5760249259600514014}
   - component: {fileID: 1841219805745041394}
+  - component: {fileID: 1769325255118503956}
   m_Layer: 3
   m_Name: Villain
   m_TagString: Villain
@@ -216,12 +285,13 @@ Transform:
   m_GameObject: {fileID: 7105841852906811752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.67, y: 0.03, z: 0}
+  m_LocalPosition: {x: 1.31, y: -0.27252, z: 0}
   m_LocalScale: {x: 0.9539915, y: 0.99116, z: 0.99116}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7666662471163085060}
   - {fileID: 4710358710613591456}
+  - {fileID: 8418135193290860423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4563230133086628178
@@ -250,7 +320,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5760249259600514014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -313,3 +383,20 @@ MonoBehaviour:
   runSpeed: 3
   acceleration: 5
   changeTime: 5
+  stoppingDistance: 2
+--- !u!114 &1769325255118503956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7105841852906811752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176840301ca215146864e98a3bb90284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  projectilePrefab: {fileID: 8591355410743386203, guid: 3d3ccb3ea29f4aa40824fcdfbc8821ae, type: 3}
+  shootPoint: {fileID: 8418135193290860423}
+  fireRate: 1
+  shootDistance: 8
