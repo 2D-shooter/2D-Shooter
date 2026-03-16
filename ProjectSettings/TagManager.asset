@@ -21,9 +21,9 @@ TagManager:
   - Civilian
   - obstacleMask
   - Bullets
-  - 
-  - 
-  - 
+  - EnemyBullets
+  - Villain
+  - Fist
   - 
   - 
   - 
