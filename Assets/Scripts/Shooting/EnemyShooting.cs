@@ -79,6 +79,7 @@ public class EnemyShooting : MonoBehaviour
         if (distance <= shootDistance && fireTimer >= fireRate)
         {
             Shoot();
+            SoundFXManager.Instance.PlayShoot();
             fireTimer = 0f;
         }
     }
