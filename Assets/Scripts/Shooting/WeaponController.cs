@@ -837,6 +837,7 @@ namespace TopDown.Shooting
             if (clipAmmoPool.ContainsKey(currentWeapon) && clipAmmoPool[currentWeapon].Value > 0)
             {
                 DoShoot();
+                SoundFXManager.Instance.PlayShoot();
             }
         }
 
