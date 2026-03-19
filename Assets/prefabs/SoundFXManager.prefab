@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3196760746054304560
+--- !u!1 &2821406038110430682
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9185521117827010841}
-  - component: {fileID: 7859399748409298879}
-  - component: {fileID: 1461297497076317340}
+  - component: {fileID: 7017985629403831602}
+  - component: {fileID: 2736585579139036997}
+  - component: {fileID: 580598386323615705}
   m_Layer: 0
   m_Name: SoundFXManager
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9185521117827010841
+--- !u!4 &7017985629403831602
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3196760746054304560}
+  m_GameObject: {fileID: 2821406038110430682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,30 +33,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7859399748409298879
+--- !u!114 &2736585579139036997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3196760746054304560}
+  m_GameObject: {fileID: 2821406038110430682}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28b29b113c0d15c4f891c77122029f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundFXManager
-  sfxSource: {fileID: 1461297497076317340}
+  sfxSource: {fileID: 580598386323615705}
   shootClip: {fileID: 8300000, guid: a0f0764651ec18244bcac4ce61e9bd2c, type: 3}
---- !u!82 &1461297497076317340
+--- !u!82 &580598386323615705
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3196760746054304560}
+  m_GameObject: {fileID: 2821406038110430682}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6268583120911462988, guid: 28ec2ba11f1e6714fa7a84261d055d60, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
