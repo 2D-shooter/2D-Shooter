@@ -46,5 +46,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 2400120019
+    locked: 0
+  - name: Props
+    uniqueID: 3971696081
+    locked: 0
+  - name: Obstacles
+    uniqueID: 707899393
+    locked: 0
+  - name: Obstacles2
+    uniqueID: 2327692273
+    locked: 0
+  - name: Player/Villain
+    uniqueID: 3837387843
+    locked: 0
+  - name: Walls
+    uniqueID: 246787851
+    locked: 0
   m_RenderingLayers:
   - Default
