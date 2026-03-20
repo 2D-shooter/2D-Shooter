@@ -1,88 +1,192 @@
 
+//////using UnityEngine;
+
+//////public class BreakableObject : MonoBehaviour, IDamageable
+//////{
+//////    [Header("Health Settings")]
+//////    [SerializeField] private float maxHealth = 3f;
+//////    private float currentHealth;
+
+//////    private void Awake()
+//////    {
+//////        currentHealth = maxHealth;
+//////    }
+
+//////    public void TakeDamage(float damage)
+//////    {
+//////        currentHealth -= damage;
+
+//////        // Optional: Add a hit effect here
+//////        if (currentHealth <= 0)
+//////        {
+//////            Break();
+//////        }
+//////    }
+
+//////    private void Break()
+//////    {
+
+//////        if (TopDown.Systems.ObjectiveManager.Instance != null)
+//////        {
+//////            TopDown.Systems.ObjectiveManager.Instance.RegisterObjectDestroyed();
+//////        }
+//////        // For now, it just disappears. 
+//////        // Later, you can Instantiate "debris" particles here.
+//////        Destroy(gameObject);
+//////    }
+//////}
+
+////using UnityEngine;
+////using TopDown.Systems; // Added this to make referencing ObjectiveManager cleaner
+
+////public class BreakableObject : MonoBehaviour, IDamageable
+////{
+////    // This enum allows you to pick the type in the Inspector
+////    public enum ObjectType { Box, Enemy }
+
+////    [Header("Objective Settings")]
+////    [SerializeField] private ObjectType objectType = ObjectType.Box;
+
+////    [Header("Health Settings")]
+////    [SerializeField] private float maxHealth = 3f;
+////    private float currentHealth;
+
+////    private void Awake()
+////    {
+////        currentHealth = maxHealth;
+////    }
+
+////    public void TakeDamage(float damage)
+////    {
+////        currentHealth -= damage;
+
+////        if (currentHealth <= 0)
+////        {
+////            Break();
+////        }
+////    }
+
+////    private void Break()
+////    {
+////        // Check if the ObjectiveManager exists in the scene
+////        if (ObjectiveManager.Instance != null)
+////        {
+////            // Direct the signal to the correct counter based on the dropdown choice
+////            if (objectType == ObjectType.Box)
+////            {
+////                ObjectiveManager.Instance.RegisterBoxDestroyed();
+////            }
+////            else if (objectType == ObjectType.Enemy)
+////            {
+////                ObjectiveManager.Instance.RegisterEnemyKilled();
+////            }
+////        }
+
+////        // Destroy the object
+////        Destroy(gameObject);
+////    }
+////}
+
 //using UnityEngine;
+//using TopDown.Systems;
+//using TopDown.Core; // Added to access Health.EntityType
 
-//public class BreakableObject : MonoBehaviour, IDamageable
+//namespace TopDown.World
 //{
-//    [Header("Health Settings")]
-//    [SerializeField] private float maxHealth = 3f;
-//    private float currentHealth;
-
-//    private void Awake()
+//    public class BreakableObject : MonoBehaviour, IDamageable
 //    {
-//        currentHealth = maxHealth;
-//    }
+//        [Header("Settings")]
+//        [SerializeField] private float maxHealth = 20f;
+//        [SerializeField] private GameObject breakEffect;
 
-//    public void TakeDamage(float damage)
-//    {
-//        currentHealth -= damage;
+//        private float currentHealth;
+//        private bool isBroken = false;
 
-//        // Optional: Add a hit effect here
-//        if (currentHealth <= 0)
+//        private void Awake()
 //        {
-//            Break();
+//            currentHealth = maxHealth;
 //        }
-//    }
 
-//    private void Break()
-//    {
-
-//        if (TopDown.Systems.ObjectiveManager.Instance != null)
+//        public void TakeDamage(float damage)
 //        {
-//            TopDown.Systems.ObjectiveManager.Instance.RegisterObjectDestroyed();
+//            if (isBroken) return;
+
+//            currentHealth -= damage;
+//            if (currentHealth <= 0)
+//            {
+//                Break();
+//            }
 //        }
-//        // For now, it just disappears. 
-//        // Later, you can Instantiate "debris" particles here.
-//        Destroy(gameObject);
+
+//        private void Break()
+//        {
+//            isBroken = true;
+
+//            // FIXED: Changed RegisterBoxDestroyed/RegisterEnemyKilled to the new unified method
+//            if (ObjectiveManager.Instance != null)
+//            {
+//                ObjectiveManager.Instance.OnEntityResourceCheck(Health.EntityType.Box);
+//            }
+
+//            // Spawn particles if assigned
+//            if (breakEffect != null)
+//            {
+//                Instantiate(breakEffect, transform.position, Quaternion.identity);
+//            }
+
+//            Debug.Log(gameObject.name + " was destroyed!");
+//            Destroy(gameObject);
+//        }
 //    }
 //}
 
 using UnityEngine;
-using TopDown.Systems; // Added this to make referencing ObjectiveManager cleaner
+using TopDown.Systems;
+using TopDown.Core;
 
-public class BreakableObject : MonoBehaviour, IDamageable
+namespace TopDown.World
 {
-    // This enum allows you to pick the type in the Inspector
-    public enum ObjectType { Box, Enemy }
-
-    [Header("Objective Settings")]
-    [SerializeField] private ObjectType objectType = ObjectType.Box;
-
-    [Header("Health Settings")]
-    [SerializeField] private float maxHealth = 3f;
-    private float currentHealth;
-
-    private void Awake()
+    public class BreakableObject : MonoBehaviour, IDamageable
     {
-        currentHealth = maxHealth;
-    }
+        [Header("Settings")]
+        [SerializeField] private float maxHealth = 20f;
+        [SerializeField] private GameObject breakEffect;
 
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
+        private float currentHealth;
+        private bool isBroken = false;
 
-        if (currentHealth <= 0)
+        private void Awake()
         {
-            Break();
+            currentHealth = maxHealth;
         }
-    }
 
-    private void Break()
-    {
-        // Check if the ObjectiveManager exists in the scene
-        if (ObjectiveManager.Instance != null)
+        public void TakeDamage(float damage)
         {
-            // Direct the signal to the correct counter based on the dropdown choice
-            if (objectType == ObjectType.Box)
+            if (isBroken) return;
+
+            currentHealth -= damage;
+            if (currentHealth <= 0)
             {
-                ObjectiveManager.Instance.RegisterBoxDestroyed();
-            }
-            else if (objectType == ObjectType.Enemy)
-            {
-                ObjectiveManager.Instance.RegisterEnemyKilled();
+                Break();
             }
         }
 
-        // Destroy the object
-        Destroy(gameObject);
+        private void Break()
+        {
+            isBroken = true;
+
+            // Updated to the new Unified Method
+            if (ObjectiveManager.Instance != null)
+            {
+                ObjectiveManager.Instance.OnEntityResourceCheck(Health.EntityType.Box);
+            }
+
+            if (breakEffect != null)
+            {
+                Instantiate(breakEffect, transform.position, Quaternion.identity);
+            }
+
+            Destroy(gameObject);
+        }
     }
 }
