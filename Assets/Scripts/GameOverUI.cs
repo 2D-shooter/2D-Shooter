@@ -1,30 +1,4 @@
-//using UnityEngine;
-//using UnityEngine.SceneManagement;
 
-//namespace TopDown.UI
-//{
-//    public class GameOverUI : MonoBehaviour
-//    {
-//        [SerializeField] private GameObject deathPanel;
-
-//        private void Awake()
-//        {
-//            if (deathPanel != null) deathPanel.SetActive(false);
-//        }
-
-//        public void ShowDeathScreen()
-//        {
-//            deathPanel.SetActive(true);
-//            Time.timeScale = 0f; // Pause the game
-//        }
-
-//        public void RestartLevel()
-//        {
-//            Time.timeScale = 1f;
-//            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-//        }
-//    }
-//}
 
 using UnityEngine;
 using UnityEngine.SceneManagement;

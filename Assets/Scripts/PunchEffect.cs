@@ -1,23 +1,3 @@
-//using UnityEngine;
-//using System.Collections;
-
-//public class PunchEffect : MonoBehaviour
-//{
-//    [SerializeField] private float duration = 0.1f;
-
-//    public void Show()
-//    {
-//        StopAllCoroutines();
-//        StartCoroutine(FlashRoutine());
-//    }
-
-//    private IEnumerator FlashRoutine()
-//    {
-//        gameObject.SetActive(true);
-//        yield return new WaitForSeconds(duration);
-//        gameObject.SetActive(false);
-//    }
-//}
 
 using UnityEngine;
 using System.Collections;

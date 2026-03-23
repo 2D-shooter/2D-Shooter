@@ -1,28 +1,4 @@
-//using UnityEngine;
-//using UnityEngine.UI;
-//using UniRx;
-//using TopDown.Core;
 
-//namespace TopDown.UI
-//{
-//    public class HealthBarUI : MonoBehaviour
-//    {
-//        [SerializeField] private Health targetHealth;
-//        [SerializeField] private Image fillImage;
-
-//        private void Start()
-//        {
-//            if (targetHealth == null || fillImage == null) return;
-
-//            targetHealth.currentHealth
-//                .Subscribe(hp =>
-//                {
-//                    fillImage.fillAmount = hp / targetHealth.MaxHealth;
-//                })
-//                .AddTo(this);
-//        }
-//    }
-//}
 
 using UnityEngine;
 using UnityEngine.UI;
