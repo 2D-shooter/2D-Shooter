@@ -13,6 +13,10 @@ public class SoundFXManager : MonoBehaviour
     public AudioClip emptyGunClip;
     public AudioClip reloadClip;
 
+    [Header("Melee Clips")]
+public AudioClip fistSwingClip;
+public AudioClip enemyHitFistClip;
+
     private void Awake()
     {
         if (Instance == null)
@@ -44,5 +48,18 @@ public class SoundFXManager : MonoBehaviour
     {
         sfxSource.pitch = 1f;
         sfxSource.PlayOneShot(reloadClip);
+    }
+
+    public void PlayFistSwing()
+    {
+        sfxSource.pitch = Random.Range(0.95f, 1.05f);
+        sfxSource.PlayOneShot(fistSwingClip);
+    }
+
+
+    public void PlayFistHit()
+    {
+        sfxSource.pitch = Random.Range(0.95f, 1.05f);
+        sfxSource.PlayOneShot(enemyHitFistClip);
     }
 }
