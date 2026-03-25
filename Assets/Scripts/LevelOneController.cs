@@ -47,8 +47,16 @@ public class LevelOneController : MonoBehaviour
     private void TriggerBossPhase()
     {
         bossSpawned = true;
-        if (bossRoomDoor != null) bossRoomDoor.ToggleDoor();
+
+        if (bossRoomDoor != null) 
+            bossRoomDoor.ToggleDoor();
+
         if (bossPrefab != null && bossSpawnPoint != null)
             Instantiate(bossPrefab, bossSpawnPoint.position, Quaternion.identity);
+
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayBossMusic();
+        }
     }
 }
