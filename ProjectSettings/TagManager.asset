@@ -9,6 +9,7 @@ TagManager:
   - PistolPickup
   - ARPickup
   - AmmoPickup
+  - Wall
   layers:
   - Default
   - TransparentFX

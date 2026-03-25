@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBodyMask
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 1
+  - m_Path: Armature/oikea_nivunen.R
+    m_Weight: 0
+  - m_Path: Armature/oikea_nivunen.R/oikea_reisi.R
+    m_Weight: 0
+  - m_Path: Armature/oikea_nivunen.R/oikea_reisi.R/oikea_saari.R
+    m_Weight: 1
+  - m_Path: Armature/oikea_nivunen.R/oikea_reisi.R/oikea_saari.R/oikea_jalkapoyta.R
+    m_Weight: 1
+  - m_Path: Armature/oikea_nivunen.R/oikea_reisi.R/oikea_saari.R/oikea_jalkapoyta.R/oikea_jalkapoyta.R_end
+    m_Weight: 1
+  - m_Path: Armature/spine
+    m_Weight: 1
+  - m_Path: Armature/spine/head
+    m_Weight: 1
+  - m_Path: Armature/spine/head/head_end
+    m_Weight: 1
+  - m_Path: Armature/spine/oikea_olkapaa.R
+    m_Weight: 1
+  - m_Path: Armature/spine/oikea_olkapaa.R/oikea_kasivarsi.R
+    m_Weight: 1
+  - m_Path: Armature/spine/oikea_olkapaa.R/oikea_kasivarsi.R/oikea_kyynervarsi.R
+    m_Weight: 1
+  - m_Path: Armature/spine/oikea_olkapaa.R/oikea_kasivarsi.R/oikea_kyynervarsi.R/oikea_kyynervarsi.R_end
+    m_Weight: 1
+  - m_Path: Armature/spine/vasen_olkapaa.L
+    m_Weight: 1
+  - m_Path: Armature/spine/vasen_olkapaa.L/vasen_kasivarsi.L
+    m_Weight: 1
+  - m_Path: Armature/spine/vasen_olkapaa.L/vasen_kasivarsi.L/vasen_kyynervarsi.L
+    m_Weight: 1
+  - m_Path: Armature/spine/vasen_olkapaa.L/vasen_kasivarsi.L/vasen_kyynervarsi.L/vasen_kyynervarsi.L_end
+    m_Weight: 1
+  - m_Path: Armature/vasen_nivunen.L
+    m_Weight: 0
+  - m_Path: Armature/vasen_nivunen.L/vasen_reisi.L
+    m_Weight: 0
+  - m_Path: Armature/vasen_nivunen.L/vasen_reisi.L/vasen_saari.L
+    m_Weight: 1
+  - m_Path: Armature/vasen_nivunen.L/vasen_reisi.L/vasen_saari.L/vasen_jalkapoyta.L
+    m_Weight: 1
+  - m_Path: Armature/vasen_nivunen.L/vasen_reisi.L/vasen_saari.L/vasen_jalkapoyta.L/vasen_jalkapoyta.L_end
+    m_Weight: 1
+  - m_Path: Camera
+    m_Weight: 0
+  - m_Path: Cylinder
+    m_Weight: 1
+  - m_Path: Empty
+    m_Weight: 1
+  - m_Path: Light
+    m_Weight: 0

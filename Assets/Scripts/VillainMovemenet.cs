@@ -16,11 +16,21 @@ public class VillainMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private EnemyShooting enemyShooting;
+    private Animator anim;
+
+    bool isIdle;
+    float idleTimer;
+    public float idleTime = 2f;
+
+    float collisionCooldown;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         enemyShooting = GetComponent<EnemyShooting>();
+
+        // Hakee Animatorin modelista (child)
+        anim = GetComponentInChildren<Animator>();
 
         currentSpeed = walkSpeed;
         ChooseNewDirection();
@@ -28,8 +38,23 @@ public class VillainMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // === SEINÄTÖRMÄYKSEN COOLDOWN ===
+        if (collisionCooldown > 0)
+        {
+            collisionCooldown -= Time.fixedDeltaTime;
+
+            currentSpeed = 0f;
+            rb.linearVelocity = Vector2.zero;
+
+            if (anim != null)
+                anim.SetBool("bool_run", false);
+
+            return;
+        }
+
         Vector2 moveDir = Vector2.zero;
 
+        // === CHASE ===
         if (seesTarget && target != null)
         {
             float distance = Vector2.Distance(rb.position, target.position);
@@ -48,26 +73,66 @@ public class VillainMovement : MonoBehaviour
             {
                 currentSpeed = 0f;
                 rb.linearVelocity = Vector2.zero;
+
+                if (anim != null)
+                    anim.SetBool("bool_run", false);
+
                 return;
             }
         }
+        // === PATROL ===
         else
         {
-            timer -= Time.fixedDeltaTime;
+            if (isIdle)
+            {
+                idleTimer -= Time.fixedDeltaTime;
 
-            if (timer <= 0)
-                ChooseNewDirection();
+                currentSpeed = 0f;
+                moveDir = Vector2.zero;
 
-            moveDir = direction;
+                if (idleTimer <= 0)
+                {
+                    isIdle = false;
+                    ChooseNewDirection();
+                }
+            }
+            else
+            {
+                timer -= Time.fixedDeltaTime;
 
-            currentSpeed = Mathf.MoveTowards(
-                currentSpeed,
-                walkSpeed,
-                acceleration * Time.fixedDeltaTime
-            );
+                moveDir = direction;
+
+                currentSpeed = Mathf.MoveTowards(
+                    currentSpeed,
+                    walkSpeed,
+                    acceleration * Time.fixedDeltaTime
+                );
+
+                if (timer <= 0)
+                {
+                    isIdle = true;
+                    idleTimer = idleTime;
+                }
+            }
         }
 
+        // === KÄÄNTYMINEN ===
+        if (moveDir != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
+            rb.rotation = angle - 90f;
+        }
+
+        // === LIIKE ===
         rb.linearVelocity = moveDir * currentSpeed;
+
+        // === ANIMAATIO ===
+        if (anim != null)
+        {
+            anim.SetBool("bool_run", currentSpeed > 0.1f);
+        }
+
+        Debug.Log("villain_speed " + currentSpeed);
     }
 
     void ChooseNewDirection()
@@ -83,6 +148,23 @@ public class VillainMovement : MonoBehaviour
         };
 
         direction = dirs[Random.Range(0, dirs.Length)];
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            // uusi suunta pois seinästä
+            Vector2 normal = collision.contacts[0].normal;
+            ChooseNewDirection();
+
+            // pysäytä
+            currentSpeed = 0f;
+            rb.linearVelocity = Vector2.zero;
+
+            // pieni tauko ennen liikkumista
+            collisionCooldown = 0.2f;
+        }
     }
 
     public void SetTarget(Transform t)
