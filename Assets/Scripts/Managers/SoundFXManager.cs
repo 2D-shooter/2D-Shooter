@@ -6,19 +6,18 @@ public class SoundFXManager : MonoBehaviour
     public static SoundFXManager Instance;
 
     [Header("Audio Source")]
-    public AudioSource sfxSource;       // linkataan inspectorissa
+    public AudioSource sfxSource;
 
     [Header("Audio Clips")]
-    public AudioClip shootClip;         // ampumisääni inspectorissa
+    public AudioClip shootClip;
+    public AudioClip emptyGunClip;
+    public AudioClip reloadClip;
 
     private void Awake()
     {
-        // Singleton setup
         if (Instance == null)
         {
             Instance = this;
-            // Optionaalisesti: säilytetään scene changeissa
-            // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -26,13 +25,24 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    // Soita ampumisääni
+    // Ampumisääni
     public void PlayShoot()
     {
-        // Pieni satunnaisuus pitchissä, jotta äänet eivät kuulosta kopioiduilta
         sfxSource.pitch = Random.Range(0.95f, 1.05f);
-
-        // TÄRKEÄ → mahdollistaa useita päällekkäisiä laukauksia
         sfxSource.PlayOneShot(shootClip);
+    }
+
+    // Tyhjä ase (klik)
+    public void PlayEmptyGun()
+    {
+        sfxSource.pitch = 1f; // ei pitch randomia jos haluat realistisemman klikin
+        sfxSource.PlayOneShot(emptyGunClip);
+    }
+
+    // Latausääni
+    public void PlayReload()
+    {
+        sfxSource.pitch = 1f;
+        sfxSource.PlayOneShot(reloadClip);
     }
 }
