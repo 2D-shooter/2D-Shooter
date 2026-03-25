@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8529532396020252848
+--- !u!1 &2913670551340519433
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7684702884016367116}
-  - component: {fileID: 5155584303730422810}
-  - component: {fileID: 2299459544823169266}
+  - component: {fileID: 8446645232514521099}
+  - component: {fileID: 6955046124875658968}
+  - component: {fileID: 6105395967328888276}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7684702884016367116
+--- !u!4 &8446645232514521099
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529532396020252848}
+  m_GameObject: {fileID: 2913670551340519433}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 860.19495, y: 440.09814, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &5155584303730422810
+--- !u!82 &6955046124875658968
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529532396020252848}
+  m_GameObject: {fileID: 2913670551340519433}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2107878774855156285, guid: 28ec2ba11f1e6714fa7a84261d055d60, type: 2}
@@ -130,17 +130,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2299459544823169266
+--- !u!114 &6105395967328888276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529532396020252848}
+  m_GameObject: {fileID: 2913670551340519433}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 472c7e819aeda314b96fd225417ed687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
-  musicSource: {fileID: 5155584303730422810}
+  musicSource: {fileID: 6955046124875658968}
   backgroundMusic: {fileID: 8300000, guid: 4c51b3f7345bd744cb15e5bfab2056c3, type: 3}
+  bossMusic: {fileID: 8300000, guid: 4ceb0ebfa14904940a50994ac5867bd2, type: 3}

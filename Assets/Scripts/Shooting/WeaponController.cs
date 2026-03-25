@@ -24,6 +24,7 @@ namespace TopDown.Shooting
         private Transform currentFirePoint;
 
         private bool isReloading = false;
+        private WeaponType reloadingWeapon;
 
         private Dictionary<WeaponType, IntReactiveProperty> clipAmmoPool = new Dictionary<WeaponType, IntReactiveProperty>();
         private Dictionary<WeaponType, IntReactiveProperty> totalAmmoPool = new Dictionary<WeaponType, IntReactiveProperty>();
@@ -73,7 +74,7 @@ namespace TopDown.Shooting
 
             if (!isPressing) hasReleasedSinceLastShot = true;
 
-            // ⛔ estä ampuminen reloadin aikana
+            // estä ampuminen reloadin aikana
             if (isReloading) return;
 
             if (!isPressing || Time.time < nextFireTime) return;
@@ -94,7 +95,7 @@ namespace TopDown.Shooting
             }
             else
             {
-                // ❌ Empty klik (vain kerran per painallus)
+                // Empty klik (vain kerran per painallus)
                 if (hasReleasedSinceLastShot)
                 {
                     SoundFXManager.Instance.PlayEmptyGun();
@@ -116,11 +117,11 @@ namespace TopDown.Shooting
                 projectile.ShootBullet(currentFirePoint);
             }
 
-            // 🔻 vähennetään ammo
+            //  vähennetään ammo
             clipAmmoPool[currentWeapon].Value--;
             CurrentAmmoInClip.Value = clipAmmoPool[currentWeapon].Value;
 
-            // 🎯 VAIN Assault Rifle → viimeinen panos klik viiveellä
+            //  VAIN Assault Rifle → viimeinen panos klik viiveellä
             if (currentWeapon == WeaponType.AssaultRifle &&
                 clipAmmoPool[currentWeapon].Value == 0)
             {
@@ -139,7 +140,11 @@ namespace TopDown.Shooting
             nextFireTime = Time.time + 0.4f;
             hasReleasedSinceLastShot = false;
 
+            SoundFXManager.Instance.PlayFistSwing();
+
             if (punchVisualEffect != null) punchVisualEffect.Show();
+
+            bool hitEnemy = false;
 
             Collider2D[] hitObjects = Physics2D.OverlapCircleAll(fistPoint.position, 0.5f);
             foreach (var obj in hitObjects)
@@ -149,8 +154,14 @@ namespace TopDown.Shooting
                     if (health.entityType != Health.EntityType.Player)
                     {
                         health.TakeDamage(punchDamage);
+                        hitEnemy = true;
                     }
                 }
+            }
+
+            if (hitEnemy)
+            {
+                SoundFXManager.Instance.PlayFistHit();
             }
         }
 
@@ -177,30 +188,45 @@ namespace TopDown.Shooting
             }
         }
 
-        private IEnumerator ReloadRoutine()
-        {
-            isReloading = true;
+private IEnumerator ReloadRoutine()
+{
+    isReloading = true;
 
-            // 🔊 soita reload ääni heti
-            SoundFXManager.Instance.PlayReload();
+    // tallenna ase joka aloitti reloadin
+    reloadingWeapon = currentWeapon;
 
-            // ⏳ reload aika
-            yield return new WaitForSeconds(1.5f);
+    SoundFXManager.Instance.PlayReload();
 
-            int missing = activeWeaponData.clipSize - clipAmmoPool[currentWeapon].Value;
-            int available = totalAmmoPool[currentWeapon].Value;
-            int amount = Mathf.Min(missing, available);
+    yield return new WaitForSeconds(1.5f);
 
-            if (amount > 0)
-            {
-                clipAmmoPool[currentWeapon].Value += amount;
-                totalAmmoPool[currentWeapon].Value -= amount;
+    // jos ase vaihdettu kesken reloadin → älä tee mitään
+    if (currentWeapon != reloadingWeapon)
+    {
+        isReloading = false;
+        yield break;
+    }
 
-                CurrentAmmoInClip.Value = clipAmmoPool[currentWeapon].Value;
-                TotalAmmo.Value = totalAmmoPool[currentWeapon].Value;
-            }
+    // tarkista että ase on edelleen validi
+    if (activeWeaponData == null || !clipAmmoPool.ContainsKey(currentWeapon))
+    {
+        isReloading = false;
+        yield break;
+    }
 
-            isReloading = false;
-        }
+    int missing = activeWeaponData.clipSize - clipAmmoPool[currentWeapon].Value;
+    int available = totalAmmoPool[currentWeapon].Value;
+    int amount = Mathf.Min(missing, available);
+
+    if (amount > 0)
+    {
+        clipAmmoPool[currentWeapon].Value += amount;
+        totalAmmoPool[currentWeapon].Value -= amount;
+
+        CurrentAmmoInClip.Value = clipAmmoPool[currentWeapon].Value;
+        TotalAmmo.Value = totalAmmoPool[currentWeapon].Value;
+    }
+
+    isReloading = false;
+}
     }
 }

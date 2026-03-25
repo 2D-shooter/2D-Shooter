@@ -2351,6 +2351,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: reloadClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b2cea2a3756c7640ae103e3c830d1ad, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: emptyGunClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 59831802d6177a9468d3b6521b7e2b92, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: fistSwingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d5cf4b36f6390494d888f413700d8a70, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: enemyHitFistClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 372e4b71f20ffe04fae2bbc7494897f2, type: 3}
     - target: {fileID: 2821406038110430682, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
       propertyPath: m_Name
       value: SoundFXManager
