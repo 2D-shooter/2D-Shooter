@@ -132,7 +132,7 @@ public class VillainMovement : MonoBehaviour
             anim.SetBool("bool_run", currentSpeed > 0.1f);
         }
 
-        Debug.Log("villain_speed " + currentSpeed);
+        //Debug.Log("villain_speed " + currentSpeed);
     }
 
     void ChooseNewDirection()

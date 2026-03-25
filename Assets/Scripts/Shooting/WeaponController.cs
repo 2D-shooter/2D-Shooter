@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using TopDown.Core;
 
+
 namespace TopDown.Shooting
 {
     public enum WeaponType { Fists, Pistol, AssaultRifle }
 
     public class WeaponController : MonoBehaviour
     {
+        private Animator anim;
+
         public WeaponType currentWeapon = WeaponType.Fists;
         public WeaponData activeWeaponData;
 
@@ -34,6 +37,9 @@ namespace TopDown.Shooting
 
         private void Awake()
         {
+            
+            anim = GetComponentInChildren<Animator>();
+
             InitializeAmmo(WeaponType.Pistol, 10, 30);
             InitializeAmmo(WeaponType.AssaultRifle, 30, 90);
             SwitchToWeapon(WeaponType.Fists);
@@ -54,6 +60,12 @@ namespace TopDown.Shooting
             activeWeaponData = data;
             currentFirePoint = weaponFirePoint;
             hasReleasedSinceLastShot = true;
+
+            if (anim != null)
+            {
+                anim.SetInteger("weapon_int", (int)newType);
+                Debug.Log("Weapon: " + (int)newType);
+            }
 
             if (newType != WeaponType.Fists && clipAmmoPool.ContainsKey(newType))
             {
@@ -141,6 +153,12 @@ namespace TopDown.Shooting
             hasReleasedSinceLastShot = false;
 
             SoundFXManager.Instance.PlayFistSwing();
+
+            if (anim != null)
+        {
+            anim.SetTrigger("Punch_animation");
+            Debug.Log("Punch triggered");
+        }
 
             if (punchVisualEffect != null) punchVisualEffect.Show();
 

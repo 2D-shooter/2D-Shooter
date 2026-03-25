@@ -44,7 +44,7 @@ public class VisionTriggerVillain : MonoBehaviour
         hasLineOfSight = false;
         villain.ClearTarget();
 
-        Debug.Log("👁 Villain kadotti pelaajan (triggeristä ulos)");
+        //Debug.Log("👁 Villain kadotti pelaajan (triggeristä ulos)");
     }
 
     // ===== JATKUVA NÄKÖTARKISTUS =====
@@ -82,13 +82,13 @@ public class VisionTriggerVillain : MonoBehaviour
         {
             hasLineOfSight = true;
             villain.SetTarget(playerInRange);
-            Debug.Log("👁 Villain näkee pelaajan");
+            //Debug.Log("👁 Villain näkee pelaajan");
         }
         else if (!seesPlayerNow && hasLineOfSight)
         {
             hasLineOfSight = false;
             villain.ClearTarget();
-            Debug.Log("👁 Villain menetti näköyhteyden");
+            //Debug.Log("👁 Villain menetti näköyhteyden");
         }
     }
 }
