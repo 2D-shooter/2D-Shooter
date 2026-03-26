@@ -49,18 +49,19 @@ public class MusicManager : MonoBehaviour
         ResetToNormal();
     }
 
-    public void PlayMusic(AudioClip clip)
+    // LISÄTTY startTime
+    public void PlayMusic(AudioClip clip, float startTime = 0f)
     {
         if (musicRoutine != null)
             StopCoroutine(musicRoutine);
 
-        musicRoutine = StartCoroutine(SwapMusic(clip));
+        musicRoutine = StartCoroutine(SwapMusic(clip, startTime));
     }
 
     public void PlayBossMusic()
     {
         isBossMusicPlaying = true;
-        PlayMusic(bossMusic);
+        PlayMusic(bossMusic, 24f); // alkaa 24 sekunnista
     }
 
     public void PlayNormalMusic()
@@ -82,11 +83,13 @@ public class MusicManager : MonoBehaviour
         isBossMusicPlaying = false;
         PlayNormalMusic();
     }
-    private IEnumerator SwapMusic(AudioClip newClip)
+
+    // LISÄTTY startTime coroutineen
+    private IEnumerator SwapMusic(AudioClip newClip, float startTime)
     {
         float startVolume = musicSource.volume;
 
-        // 🔽 fade out
+        // fade out
         float t = 0f;
         while (t < 0.5f)
         {
@@ -95,12 +98,15 @@ public class MusicManager : MonoBehaviour
             yield return null;
         }
 
-        // 🔁 vaihda musiikki
+        // vaihda musiikki
         musicSource.clip = newClip;
         musicSource.loop = true;
+
+        musicSource.time = startTime;
+
         musicSource.Play();
 
-        // 🔼 fade in
+        // fade in
         t = 0f;
         while (t < 0.5f)
         {

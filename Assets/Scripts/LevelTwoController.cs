@@ -57,6 +57,12 @@ public class LevelTwoController : MonoBehaviour
         boss1Spawned = true;
         if (door1 != null) door1.ToggleDoor();
         if (boss1Prefab != null) Instantiate(boss1Prefab, spawn1.position, Quaternion.identity);
+                
+                if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayBossMusic();
+        }
+    
     }
 
     private void SpawnBoss2()
