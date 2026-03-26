@@ -343,6 +343,8 @@ GameObject:
   - component: {fileID: 4680430389998292586}
   - component: {fileID: 4869095614895648663}
   - component: {fileID: 7351093681655267253}
+  - component: {fileID: 2205746393212243195}
+  - component: {fileID: 7954782449942270878}
   m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
@@ -433,6 +435,33 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2205746393212243195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539626123497782725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098a9f02787896a40b465787d7f36c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TopDown.UI.UI_Billboard
+  useStaticRotation: 1
+--- !u!114 &7954782449942270878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539626123497782725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a12866de906bf42bb07fa5bc197203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TopDown.UI.LockedHealthBar
+  target: {fileID: 7256212816732193964}
+  offset: {x: 0, y: 1, z: 0}
 --- !u!1 &8297786808745552456
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +493,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.004, y: 0.008, z: 0}
-  m_LocalScale: {x: 0.9539915, y: 0.99116, z: 0.99116}
+  m_LocalScale: {x: 0.91009974, y: 0.9823981, z: 0.9823981}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2580818756495010044}
