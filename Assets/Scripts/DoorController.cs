@@ -1,6 +1,5 @@
-
-
 using UnityEngine;
+using TMPro; // Needed if you use TextMeshPro
 
 namespace TopDown.World
 {
@@ -11,12 +10,18 @@ namespace TopDown.World
         [SerializeField] private float relativeOpenAngle = -90f;
         [SerializeField] private float smoothSpeed = 5f;
 
+        [Header("UI Prompt")]
+        [SerializeField] private GameObject interactionText; // Drag "Paina E" object here
+
         private Quaternion closedRotation;
 
         private void Awake()
         {
             // Capture the rotation you set in the Scene as "Closed"
             closedRotation = transform.localRotation;
+
+            // Hide the text at the very start
+            if (interactionText != null) interactionText.SetActive(false);
         }
 
         private void Update()
@@ -28,7 +33,24 @@ namespace TopDown.World
             transform.localRotation = Quaternion.Slerp(transform.localRotation, desiredRotation, Time.deltaTime * smoothSpeed);
         }
 
-        // This is the function PlayerInteract was looking for!
+        // Trigger detection for the "Paina E" prompt
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player") && interactionText != null)
+            {
+                interactionText.SetActive(true);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Player") && interactionText != null)
+            {
+                interactionText.SetActive(false);
+            }
+        }
+
+        // This is the function PlayerInteract is looking for!
         public void ToggleDoor()
         {
             isOpen = !isOpen;
