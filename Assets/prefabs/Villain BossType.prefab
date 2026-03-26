@@ -208,11 +208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: fireRate
-      value: 0.15
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: bulletDamage
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2925994301844140614, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name

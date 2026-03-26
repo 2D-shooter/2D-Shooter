@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponName: 
   isAutomatic: 1
   fireRate: 0.2
-  damage: 100
+  damage: 25
   clipSize: 30
   maxAmmo: 90
   projectilePrefab: {fileID: 2820622166370971230, guid: 10845d22e408b34429745e59d761a2ba, type: 3}
