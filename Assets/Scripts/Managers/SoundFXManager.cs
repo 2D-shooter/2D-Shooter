@@ -17,6 +17,20 @@ public class SoundFXManager : MonoBehaviour
 public AudioClip fistSwingClip;
 public AudioClip enemyHitFistClip;
 
+[Header("Player Sounds")]
+public AudioClip[] playerGruntClips;
+public AudioClip[] playerDeathClips;
+
+public float playerGruntCooldown = 0.3f;
+private float lastPlayerGruntTime;
+
+[Header("Enemy Sounds")]
+public AudioClip[] gruntClips;
+public AudioClip[] deathClips;
+
+[Header("Enemy Settings")]
+public float gruntCooldown = 0.3f;
+private float lastGruntTime;
     private void Awake()
     {
         if (Instance == null)
@@ -61,5 +75,46 @@ public AudioClip enemyHitFistClip;
     {
         sfxSource.pitch = Random.Range(0.95f, 1.05f);
         sfxSource.PlayOneShot(enemyHitFistClip);
+    }
+
+    public void PlayPlayerGrunt()
+    {
+        if (Time.time < lastPlayerGruntTime + playerGruntCooldown) return;
+
+        if (playerGruntClips.Length == 0) return;
+
+        lastPlayerGruntTime = Time.time;
+
+        AudioClip clip = playerGruntClips[Random.Range(0, playerGruntClips.Length)];
+        sfxSource.pitch = Random.Range(0.95f, 1.05f);
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayPlayerDeath()
+    {
+        if (playerDeathClips.Length == 0) return;
+
+        AudioClip clip = playerDeathClips[Random.Range(0, playerDeathClips.Length)];
+        sfxSource.pitch = Random.Range(0.9f, 1.1f);
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayEnemyGrunt(Vector3 position)
+    {
+        if (Time.time < lastGruntTime + gruntCooldown) return;
+        if (gruntClips.Length == 0) return;
+
+        lastGruntTime = Time.time;
+
+        AudioClip clip = gruntClips[Random.Range(0, gruntClips.Length)];
+        AudioSource.PlayClipAtPoint(clip, position, 1f);
+    }
+
+    public void PlayEnemyDeath(Vector3 position)
+    {
+        if (deathClips.Length == 0) return;
+
+        AudioClip clip = deathClips[Random.Range(0, deathClips.Length)];
+        AudioSource.PlayClipAtPoint(clip, position, 1f);
     }
 }

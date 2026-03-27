@@ -7,12 +7,18 @@ public class VillainMovement : MonoBehaviour
     public float acceleration = 8f;
     public float changeTime = 2f;
     public float stoppingDistance = 0.8f;
+    public float searchDuration = 3f;
+    public float memoryDuration = 2f;
 
     private Transform target;
     private Vector2 direction;
     private float timer;
     private bool seesTarget;
     private float currentSpeed;
+    private Vector2 lastKnownPlayerPos;
+    private bool isSearching;
+    private float searchTimer;
+    private float lastSeenTime;
 
     private Rigidbody2D rb;
     private EnemyShooting enemyShooting;
@@ -28,8 +34,6 @@ public class VillainMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         enemyShooting = GetComponent<EnemyShooting>();
-
-        // Hakee Animatorin modelista (child)
         anim = GetComponentInChildren<Animator>();
 
         currentSpeed = walkSpeed;
@@ -38,46 +42,48 @@ public class VillainMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // === SEINÄTÖRMÄYKSEN COOLDOWN ===
         if (collisionCooldown > 0)
         {
             collisionCooldown -= Time.fixedDeltaTime;
-
             currentSpeed = 0f;
             rb.linearVelocity = Vector2.zero;
-
-            if (anim != null)
-                anim.SetBool("bool_run", false);
-
+            anim?.SetBool("bool_run", false);
             return;
         }
 
         Vector2 moveDir = Vector2.zero;
 
-        // === CHASE ===
-        if (seesTarget && target != null)
+        // === CHASE / MEMORY ===
+        if ((seesTarget || (Time.time - lastSeenTime < memoryDuration)) && target != null)
         {
-            float distance = Vector2.Distance(rb.position, target.position);
+            Vector2 targetPos = (Vector2)target.position;
+            float distance = Vector2.Distance(rb.position, targetPos);
 
             if (distance > stoppingDistance)
             {
-                moveDir = ((Vector2)target.position - rb.position).normalized;
-
-                currentSpeed = Mathf.MoveTowards(
-                    currentSpeed,
-                    runSpeed,
-                    acceleration * Time.fixedDeltaTime
-                );
+                moveDir = (targetPos - rb.position).normalized;
+                currentSpeed = Mathf.MoveTowards(currentSpeed, runSpeed, acceleration * Time.fixedDeltaTime);
             }
             else
             {
                 currentSpeed = 0f;
                 rb.linearVelocity = Vector2.zero;
-
-                if (anim != null)
-                    anim.SetBool("bool_run", false);
-
+                anim?.SetBool("bool_run", false);
                 return;
+            }
+        }
+        // === SEARCH LAST KNOWN POSITION ===
+        else if (isSearching)
+        {
+            searchTimer -= Time.fixedDeltaTime;
+            Vector2 dir = (lastKnownPlayerPos - rb.position).normalized;
+            rb.linearVelocity = dir * walkSpeed * 0.5f;
+
+            if (Vector2.Distance(rb.position, lastKnownPlayerPos) < 0.3f || searchTimer <= 0)
+            {
+                isSearching = false;
+                rb.linearVelocity = Vector2.zero;
+                ChooseNewDirection();
             }
         }
         // === PATROL ===
@@ -86,7 +92,6 @@ public class VillainMovement : MonoBehaviour
             if (isIdle)
             {
                 idleTimer -= Time.fixedDeltaTime;
-
                 currentSpeed = 0f;
                 moveDir = Vector2.zero;
 
@@ -99,14 +104,8 @@ public class VillainMovement : MonoBehaviour
             else
             {
                 timer -= Time.fixedDeltaTime;
-
                 moveDir = direction;
-
-                currentSpeed = Mathf.MoveTowards(
-                    currentSpeed,
-                    walkSpeed,
-                    acceleration * Time.fixedDeltaTime
-                );
+                currentSpeed = Mathf.MoveTowards(currentSpeed, walkSpeed, acceleration * Time.fixedDeltaTime);
 
                 if (timer <= 0)
                 {
@@ -116,72 +115,60 @@ public class VillainMovement : MonoBehaviour
             }
         }
 
-        // === KÄÄNTYMINEN ===
+        // === ROTATE ===
         if (moveDir != Vector2.zero)
         {
             float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
             rb.rotation = angle - 90f;
         }
 
-        // === LIIKE ===
         rb.linearVelocity = moveDir * currentSpeed;
-
-        // === ANIMAATIO ===
-        if (anim != null)
-        {
-            anim.SetBool("bool_run", currentSpeed > 0.1f);
-        }
-
-        //Debug.Log("villain_speed " + currentSpeed);
+        anim?.SetBool("bool_run", currentSpeed > 0.1f);
     }
 
     void ChooseNewDirection()
     {
         timer = changeTime;
-
-        Vector2[] dirs =
-        {
-            Vector2.up,
-            Vector2.down,
-            Vector2.left,
-            Vector2.right
-        };
-
+        Vector2[] dirs = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
         direction = dirs[Random.Range(0, dirs.Length)];
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            // uusi suunta pois seinästä
-            Vector2 normal = collision.contacts[0].normal;
-            ChooseNewDirection();
+        if (!collision.gameObject.CompareTag("Wall")) return;
 
-            // pysäytä
-            currentSpeed = 0f;
-            rb.linearVelocity = Vector2.zero;
-
-            // pieni tauko ennen liikkumista
-            collisionCooldown = 0.2f;
-        }
+        Vector2 normal = collision.contacts[0].normal;
+        direction = Vector2.Reflect(direction, normal).normalized;
+        rb.position += normal * 0.1f;
+        currentSpeed = 0f;
+        rb.linearVelocity = Vector2.zero;
+        collisionCooldown = 0.2f;
+        anim?.SetBool("bool_run", false);
     }
 
-    public void SetTarget(Transform t)
+    // === PLAYER SPOTTED / LOST ===
+    public void OnPlayerSpotted(Transform player)
     {
         seesTarget = true;
-        target = t;
-
-        if (enemyShooting != null)
-            enemyShooting.SetTarget(t);
+        target = player;
+        lastSeenTime = Time.time;
+        lastKnownPlayerPos = player.position;
+        isSearching = false;
+        enemyShooting?.SetTarget(player);
     }
 
-    public void ClearTarget()
+    public void OnPlayerLost()
     {
         seesTarget = false;
-        target = null;
-
-        if (enemyShooting != null)
-            enemyShooting.ClearTarget();
+        if (!isSearching)
+        {
+            isSearching = true;
+            searchTimer = searchDuration;
+        }
+        enemyShooting?.ClearTarget();
     }
+
+    // === DIRECT TARGET SET / CLEAR ===
+    public void SetTarget(Transform t) => OnPlayerSpotted(t);
+    public void ClearTarget() => OnPlayerLost();
 }
