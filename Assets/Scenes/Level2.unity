@@ -211,6 +211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1887fb0c850e8d409d12b600ec1339d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneHandler
+--- !u!1 &277956974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2498545926448051334, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+  m_PrefabInstance: {fileID: 2120849107}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &455498894 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6266076797863705039, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
@@ -1074,6 +1079,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3426079450537266994, guid: e5b3e0b8251bed446a3a64283746f966, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 1962419352}
     - target: {fileID: 3857320775931099167, guid: e5b3e0b8251bed446a3a64283746f966, type: 3}
       propertyPath: m_Name
       value: Player The Slayer
@@ -1839,7 +1848,7 @@ PrefabInstance:
     - target: {fileID: 4777455741348638225, guid: d7b266a70122a9f4a98fd8db14bdf18d, type: 3}
       propertyPath: interactionText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 277956974}
     - target: {fileID: 5621838885681710649, guid: d7b266a70122a9f4a98fd8db14bdf18d, type: 3}
       propertyPath: m_SortingLayer
       value: 6
@@ -1925,6 +1934,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c034156bdd2a34eba7fb16fc5288c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
+--- !u!114 &1726757237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3426079450537266994, guid: e5b3e0b8251bed446a3a64283746f966, type: 3}
+  m_PrefabInstance: {fileID: 1097341969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efda523421288fa46a22c549ab8bc560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!1001 &1753553047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2115,6 +2135,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+--- !u!1 &1962419352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2315063214269808278, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+  m_PrefabInstance: {fileID: 2120849107}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1986279088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2253,6 +2278,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 232524662120328475, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2315063214269808278, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2329,6 +2358,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7601647054285070950, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601647054285070950, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601647054285070950, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601647054285070950, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111249830109611662, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1726757237}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2458,7 +2507,7 @@ PrefabInstance:
     - target: {fileID: 4777455741348638225, guid: d7b266a70122a9f4a98fd8db14bdf18d, type: 3}
       propertyPath: interactionText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 277956974}
     - target: {fileID: 5621838885681710649, guid: d7b266a70122a9f4a98fd8db14bdf18d, type: 3}
       propertyPath: m_SortingLayer
       value: 6
