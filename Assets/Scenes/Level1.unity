@@ -15064,6 +15064,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7601647054285070950, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601647054285070950, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601647054285070950, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601647054285070950, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 8260703916753929718, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
