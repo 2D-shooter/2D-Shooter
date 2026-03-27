@@ -14,7 +14,6 @@ public class SoundMixerManager : MonoBehaviour
     public void SetSoundFXVolume(float level)
     {
         level = Mathf.Clamp(level, 0.0001f, 1f);
-        Debug.Log("LEVEL: " + level);
         audioMixer.SetFloat("soundfxvolume", Mathf.Log10(level) *20f);
 
         SoundFXManager.Instance.PlayShoot();
