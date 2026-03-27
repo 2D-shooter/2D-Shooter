@@ -2,93 +2,59 @@ using UnityEngine;
 
 public class VisionTriggerVillain : MonoBehaviour
 {
-    // Inspectorissa asetettavat layermaskit
+    [Header("Masks")]
     public LayerMask obstacleMask; // seinät / esteet
     public LayerMask playerMask;   // pelaaja
 
-    // Viittaukset
-    private VillainMovement villain;   // itse vihollisen liikelogiikka
-    private Transform playerInRange;    // pelaaja vision triggerin sisällä
-    private Rigidbody2D villainRb;      // vihollisen Rigidbody2D
+    private VillainMovement villain;
+    private Transform playerInRange;
 
-    // Tila: näkeekö vihollinen pelaajan tällä hetkellä oikeasti
-    private bool hasLineOfSight;
-
-    // ===== HERÄÄMINEN =====
-    // Haetaan tarvittavat komponentit kerran
     void Awake()
     {
         villain = GetComponentInParent<VillainMovement>();
-        villainRb = villain.GetComponent<Rigidbody2D>();
+        if (villain == null)
+        {
+            Debug.LogError("VillainMovement not found in parent!");
+        }
     }
 
-    // ===== TRIGGERIIN SISÄÄNTULO =====
-    // Pelaaja on näkökentässä, mutta ei vielä välttämättä näkyvissä (seinä voi olla välissä)
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player"))
-            return;
-
-        playerInRange = other.transform;
-        CheckLineOfSight();
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = other.transform;
+            villain?.OnPlayerSpotted(playerInRange);
+        }
     }
 
-    // ===== TRIGGERISTÄ POISTUMINEN =====
-    // Pelaaja poistuu näkökentästä kokonaan
     void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player"))
-            return;
-
-        playerInRange = null;
-        hasLineOfSight = false;
-        villain.ClearTarget();
-
-        //Debug.Log("👁 Villain kadotti pelaajan (triggeristä ulos)");
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = null;
+            villain?.OnPlayerLost();
+        }
     }
 
-    // ===== JATKUVA NÄKÖTARKISTUS =====
-    // Tarkistetaan näköyhteys niin kauan kuin pelaaja on triggerin sisällä
     void FixedUpdate()
     {
-        if (playerInRange != null)
-            CheckLineOfSight();
-    }
+        if (playerInRange == null || villain == null) return;
 
-    // ===== NÄKÖYHTEYDEN TARKISTUS =====
-    // Raycast selvittää onko seinä vihollisen ja pelaajan välissä
-    void CheckLineOfSight()
-    {
-        Vector2 origin = villainRb.position;
-        Vector2 target = playerInRange.position;
-        Vector2 dir = target - origin;
+        Vector2 origin = villain.transform.position;
+        Vector2 dir = (Vector2)playerInRange.position - origin;
         float dist = dir.magnitude;
 
+        // Raycast tarkistaa, onko esteitä välissä
+        RaycastHit2D hit = Physics2D.Raycast(origin, dir.normalized, dist, obstacleMask | playerMask);
         Debug.DrawRay(origin, dir.normalized * dist, Color.red);
 
-        RaycastHit2D hit = Physics2D.Raycast(
-            origin,
-            dir.normalized,
-            dist,
-            obstacleMask | playerMask
-        );
-
-        if (hit.collider == null)
-            return;
-
-        bool seesPlayerNow = hit.collider.CompareTag("Player");
-
-        if (seesPlayerNow && !hasLineOfSight)
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
-            hasLineOfSight = true;
-            villain.SetTarget(playerInRange);
-            //Debug.Log("👁 Villain näkee pelaajan");
+            villain.OnPlayerSpotted(playerInRange);
         }
-        else if (!seesPlayerNow && hasLineOfSight)
+        else
         {
-            hasLineOfSight = false;
-            villain.ClearTarget();
-            //Debug.Log("👁 Villain menetti näköyhteyden");
+            villain.OnPlayerLost();
         }
     }
 }

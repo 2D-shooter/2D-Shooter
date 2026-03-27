@@ -2164,6 +2164,102 @@ PrefabInstance:
       propertyPath: enemyHitFistClip
       value: 
       objectReference: {fileID: 8300000, guid: 372e4b71f20ffe04fae2bbc7494897f2, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: deathClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: gruntClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'deathClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bbf94b84836484545a2ac58b151ca010, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'deathClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b4d14c0fb9db35b4dbfdfea38a0df2eb, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'deathClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d1d5d6f08c370f4098d46ddd9b0e163, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'deathClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c978ec672893d2745884c8986ebe8045, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'deathClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 172b7eeb78b6d2d41a611279fbabbbe5, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'gruntClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e83e1de03696594784275dd85e48822, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'gruntClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 87620c627ebc6134eb32696442535845, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'gruntClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d22dd82908474e840ba0bd5c547db00f, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'gruntClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad77a85b915f26b45b6a536723055928, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'gruntClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: fb5cb862d6c49534ead2a65b71d9db5d, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: playerDeathClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: playerGruntClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerDeathClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bbf94b84836484545a2ac58b151ca010, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerDeathClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b4d14c0fb9db35b4dbfdfea38a0df2eb, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerDeathClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d1d5d6f08c370f4098d46ddd9b0e163, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerDeathClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c978ec672893d2745884c8986ebe8045, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerDeathClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 172b7eeb78b6d2d41a611279fbabbbe5, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerGruntClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e83e1de03696594784275dd85e48822, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerGruntClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 87620c627ebc6134eb32696442535845, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerGruntClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d22dd82908474e840ba0bd5c547db00f, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerGruntClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad77a85b915f26b45b6a536723055928, type: 3}
+    - target: {fileID: 2736585579139036997, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
+      propertyPath: 'playerGruntClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: fb5cb862d6c49534ead2a65b71d9db5d, type: 3}
     - target: {fileID: 2821406038110430682, guid: 0f155151b9f3b624686ee9298ee890f8, type: 3}
       propertyPath: m_Name
       value: SoundFXManager
@@ -2280,11 +2376,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 232524662120328475, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2315063214269808278, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3337272547670755844, guid: 5f8b9cb78b22c3b4dad9e1b18fa9bc2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
