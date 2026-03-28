@@ -1077,6 +1077,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7484946223561902063, guid: e5b3e0b8251bed446a3a64283746f966, type: 3}
   m_PrefabInstance: {fileID: 1097341969}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1025571343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 689464659227428636, guid: 6305225625aee6e4f9e5e75807c701fe, type: 3}
+  m_PrefabInstance: {fileID: 1241937951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1027865899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4455393801303041388, guid: 19db4304131bbb24ca77a2ecd7d65e36, type: 3}
@@ -1243,6 +1248,10 @@ PrefabInstance:
     - target: {fileID: 689464659227428636, guid: 6305225625aee6e4f9e5e75807c701fe, type: 3}
       propertyPath: m_Name
       value: EXITNEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 689464659227428636, guid: 6305225625aee6e4f9e5e75807c701fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1971561650798901320, guid: 6305225625aee6e4f9e5e75807c701fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1643,7 +1652,7 @@ MonoBehaviour:
   door2: {fileID: 1842286722}
   boss2Prefab: {fileID: 8356174677825296250, guid: 2eecb7eabf647c44bbd661ba84972052, type: 3}
   spawn2: {fileID: 1472943465}
-  levelExitObject: {fileID: 0}
+  levelExitObject: {fileID: 1025571343}
 --- !u!4 &1472943465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4455393801303041388, guid: 19db4304131bbb24ca77a2ecd7d65e36, type: 3}
