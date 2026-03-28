@@ -757,6 +757,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.929148
@@ -797,6 +809,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
       value: Villain NewType (4)
@@ -816,6 +840,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: bulletDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
@@ -858,6 +894,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
       value: Villain NewType (2)
@@ -888,6 +936,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: bulletDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
@@ -929,6 +989,18 @@ PrefabInstance:
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
@@ -1022,6 +1094,22 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.683298
@@ -1061,6 +1149,18 @@ PrefabInstance:
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
@@ -1268,9 +1368,17 @@ PrefabInstance:
       value: BossDoor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3038418114816159368, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038418114816159368, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3038418114816159368, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4210975196901319108, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
       propertyPath: m_SortingLayer
       value: 6
@@ -1286,6 +1394,14 @@ PrefabInstance:
     - target: {fileID: 4237618223023741809, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
       propertyPath: m_SortingLayerID
       value: 246787851
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917181481553498664, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104112737488748285, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6451272642532622670, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1344,6 +1460,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.7894983
@@ -1384,6 +1512,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
       value: Villain NewType (0)
@@ -1403,6 +1543,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: bulletDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
@@ -1445,6 +1597,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
       value: Villain NewType (3)
@@ -1473,11 +1637,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelTwoController
   enemiesForBoss1: 5
   door1: {fileID: 1304528703371276941}
-  boss1Prefab: {fileID: 940748003687722315, guid: e8e060123c315f343b381e5187406638, type: 3}
+  boss1Prefab: {fileID: 8356174677825296250, guid: 2eecb7eabf647c44bbd661ba84972052, type: 3}
   spawn1: {fileID: 1027865899}
   totalEnemiesForBoss2: 10
   door2: {fileID: 1842286722}
-  boss2Prefab: {fileID: 940748003687722315, guid: 07112491a3a7dc142b26187467366c9a, type: 3}
+  boss2Prefab: {fileID: 8356174677825296250, guid: 2eecb7eabf647c44bbd661ba84972052, type: 3}
   spawn2: {fileID: 1472943465}
   levelExitObject: {fileID: 0}
 --- !u!4 &1472943465 stripped
@@ -1495,6 +1659,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: bulletDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
@@ -1536,6 +1712,18 @@ PrefabInstance:
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
@@ -1615,6 +1803,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.20878
@@ -1654,6 +1854,18 @@ PrefabInstance:
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
@@ -1957,6 +2169,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.717539
@@ -1996,6 +2220,18 @@ PrefabInstance:
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
@@ -2086,6 +2322,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.49204
@@ -2125,6 +2373,18 @@ PrefabInstance:
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: memoryDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963344428385356033, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: searchDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8297786808745552456, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Name
@@ -2738,9 +2998,17 @@ PrefabInstance:
       value: BossDoor
       objectReference: {fileID: 0}
     - target: {fileID: 3038418114816159368, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038418114816159368, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3038418114816159368, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4210975196901319108, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
       propertyPath: m_SortingLayer
       value: 6
@@ -2756,6 +3024,14 @@ PrefabInstance:
     - target: {fileID: 4237618223023741809, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
       propertyPath: m_SortingLayerID
       value: 246787851
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917181481553498664, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104112737488748285, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6451272642532622670, guid: 73a71a78bd6f5334d8b87484b536f0bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14481,6 +14757,14 @@ PrefabInstance:
     - target: {fileID: 5866303816482480337, guid: 92914798a79654a4b885f98e10cbc6df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980997832041742156, guid: 92914798a79654a4b885f98e10cbc6df, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980997832041742156, guid: 92914798a79654a4b885f98e10cbc6df, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7938572294194866899, guid: 92914798a79654a4b885f98e10cbc6df, type: 3}
       propertyPath: m_Name
