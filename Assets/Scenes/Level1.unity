@@ -193,6 +193,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.21
@@ -273,6 +285,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: bulletDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
@@ -638,6 +662,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.64
@@ -864,6 +900,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.91009974
@@ -1049,6 +1097,18 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.11
@@ -1122,10 +1182,22 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
     - target: {fileID: 4859645491129103862, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 822181b780397a94d9b4412f1149fd6c, type: 3}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.17
@@ -1346,6 +1418,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: bulletDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
@@ -1640,6 +1724,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
       propertyPath: bulletDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810561061245409839, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: shootDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007794359262363107, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 49152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780944061251992258, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
+      propertyPath: m_Radius
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7256212816732193964, guid: 682c866487a3b98418f130e14b8fc96c, type: 3}
@@ -13623,6 +13719,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6980997832041742156, guid: 92914798a79654a4b885f98e10cbc6df, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980997832041742156, guid: 92914798a79654a4b885f98e10cbc6df, type: 3}
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
@@ -15209,7 +15309,7 @@ PrefabInstance:
     - target: {fileID: 2285621937503106678, guid: 6d80335df5c9e0b4d989a62c578df54a, type: 3}
       propertyPath: bossPrefab
       value: 
-      objectReference: {fileID: 940748003687722315, guid: e8e060123c315f343b381e5187406638, type: 3}
+      objectReference: {fileID: 8356174677825296250, guid: 2eecb7eabf647c44bbd661ba84972052, type: 3}
     - target: {fileID: 2285621937503106678, guid: 6d80335df5c9e0b4d989a62c578df54a, type: 3}
       propertyPath: bossRoomDoor
       value: 

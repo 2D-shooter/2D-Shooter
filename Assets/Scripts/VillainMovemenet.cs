@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class VillainMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float walkSpeed = 2f;
     public float runSpeed = 6f;
     public float acceleration = 8f;
@@ -9,6 +10,7 @@ public class VillainMovement : MonoBehaviour
     public float stoppingDistance = 0.8f;
     public float searchDuration = 3f;
     public float memoryDuration = 2f;
+    public float collisionRayDistance = 0.4f; // pienempi = reagoi nopeammin
 
     private Transform target;
     private Vector2 direction;
@@ -35,7 +37,6 @@ public class VillainMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         enemyShooting = GetComponent<EnemyShooting>();
         anim = GetComponentInChildren<Animator>();
-
         currentSpeed = walkSpeed;
         ChooseNewDirection();
     }
@@ -57,27 +58,31 @@ public class VillainMovement : MonoBehaviour
         if ((seesTarget || (Time.time - lastSeenTime < memoryDuration)) && target != null)
         {
             Vector2 targetPos = (Vector2)target.position;
-            float distance = Vector2.Distance(rb.position, targetPos);
+            Vector2 toPlayer = targetPos - rb.position;
+            float distance = toPlayer.magnitude;
+
+            moveDir = toPlayer.normalized;
 
             if (distance > stoppingDistance)
             {
-                moveDir = (targetPos - rb.position).normalized;
                 currentSpeed = Mathf.MoveTowards(currentSpeed, runSpeed, acceleration * Time.fixedDeltaTime);
             }
             else
             {
-                currentSpeed = 0f;
-                rb.linearVelocity = Vector2.zero;
-                anim?.SetBool("bool_run", false);
-                return;
+                currentSpeed = 0f; // pysähdy, mutta käänny silti pelaajaan
             }
+
+            // === Lightweight obstacle avoidance ===
+            moveDir = ObstacleAvoidance(moveDir);
         }
         // === SEARCH LAST KNOWN POSITION ===
         else if (isSearching)
         {
             searchTimer -= Time.fixedDeltaTime;
             Vector2 dir = (lastKnownPlayerPos - rb.position).normalized;
-            rb.linearVelocity = dir * walkSpeed * 0.5f;
+            moveDir = ObstacleAvoidance(dir);
+
+            rb.linearVelocity = moveDir * walkSpeed * 0.5f;
 
             if (Vector2.Distance(rb.position, lastKnownPlayerPos) < 0.3f || searchTimer <= 0)
             {
@@ -85,6 +90,8 @@ public class VillainMovement : MonoBehaviour
                 rb.linearVelocity = Vector2.zero;
                 ChooseNewDirection();
             }
+
+            currentSpeed = rb.linearVelocity.magnitude;
         }
         // === PATROL ===
         else
@@ -112,18 +119,39 @@ public class VillainMovement : MonoBehaviour
                     isIdle = true;
                     idleTimer = idleTime;
                 }
+
+                moveDir = ObstacleAvoidance(moveDir);
             }
         }
 
         // === ROTATE ===
         if (moveDir != Vector2.zero)
         {
-            float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
-            rb.rotation = angle - 90f;
+            float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg - 90f;
+            float smooth = Mathf.LerpAngle(rb.rotation, angle, 10f * Time.fixedDeltaTime);
+            rb.rotation = smooth;
         }
 
         rb.linearVelocity = moveDir * currentSpeed;
         anim?.SetBool("bool_run", currentSpeed > 0.1f);
+    }
+
+    Vector2 ObstacleAvoidance(Vector2 dir)
+    {
+        RaycastHit2D wallHit = Physics2D.Raycast(rb.position, dir, collisionRayDistance, LayerMask.GetMask("Wall"));
+        if (wallHit.collider != null)
+        {
+            Vector2 left = new Vector2(-dir.y, dir.x);
+            Vector2 right = new Vector2(dir.y, -dir.x);
+
+            RaycastHit2D leftHit = Physics2D.Raycast(rb.position, left, collisionRayDistance, LayerMask.GetMask("Wall"));
+            RaycastHit2D rightHit = Physics2D.Raycast(rb.position, right, collisionRayDistance, LayerMask.GetMask("Wall"));
+
+            if (leftHit.collider == null) return left;
+            else if (rightHit.collider == null) return right;
+            else return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized; // fallback
+        }
+        return dir;
     }
 
     void ChooseNewDirection()
@@ -168,7 +196,6 @@ public class VillainMovement : MonoBehaviour
         enemyShooting?.ClearTarget();
     }
 
-    // === DIRECT TARGET SET / CLEAR ===
     public void SetTarget(Transform t) => OnPlayerSpotted(t);
     public void ClearTarget() => OnPlayerLost();
 }
